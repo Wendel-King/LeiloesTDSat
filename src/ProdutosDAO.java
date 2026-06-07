@@ -33,7 +33,7 @@ public class ProdutosDAO {
                         stmt.execute();
             
                     } catch (Exception e) {
-                        System.out.println("Erro ao inserir empresa: " + e.getMessage());
+                        JOptionPane.showMessageDialog(null, "Erro ao inserir empresa: " + e.getMessage());
                     }
     }
     
