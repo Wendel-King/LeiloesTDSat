@@ -23,11 +23,18 @@ public class ProdutosDAO {
     ArrayList<ProdutosDTO> listagem = new ArrayList<>();
     
     public void cadastrarProduto (ProdutosDTO produto){
+        conn = new conectaDAO().connectDB();
         
-        
-        //conn = new conectaDAO().connectDB();
-        
-        
+        String sql = "INSERT INTO produtos (nome, valor, status) VALUES (?, ?, 'A Venda')";
+                    try {
+                        PreparedStatement stmt = this.conn.prepareStatement(sql);
+                        stmt.setString(1, produto.getNome());
+                        stmt.setInt(2, produto.getValor());
+                        stmt.execute();
+            
+                    } catch (Exception e) {
+                        System.out.println("Erro ao inserir empresa: " + e.getMessage());
+                    }
     }
     
     public ArrayList<ProdutosDTO> listarProdutos(){
