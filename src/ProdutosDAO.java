@@ -41,7 +41,18 @@ public class ProdutosDAO {
         
         return listagem;
     }
+    public ArrayList<ProdutosDTO> listarProdutosVendidos() {
     
+    ArrayList<ProdutosDTO> vendidos = new ArrayList<>();
+
+    for (ProdutosDTO produto : listagem) {
+        if ("Vendido".equals(produto.getStatus())) {
+            vendidos.add(produto);
+        }
+    }
+
+    return vendidos;
+}
     
     
         
