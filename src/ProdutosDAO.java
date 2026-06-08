@@ -41,9 +41,33 @@ public class ProdutosDAO {
         
         return listagem;
     }
+    public ArrayList<ProdutosDTO> listarProdutosVendidos() {
     
-    
+    ArrayList<ProdutosDTO> vendidos = new ArrayList<>();
+
+    for (ProdutosDTO produto : listagem) {
+        if ("Vendido".equals(produto.getStatus())) {
+            vendidos.add(produto);
+        }
+    }
+
+    return vendidos;
+}
+    public void venderProduto(int id){
+        conn = new conectaDAO().connectDB();
+        
+        String sql = "INSERT INTO produtos (status) VALUES ('Vendido') where id = ?";
+                    try {
+                        PreparedStatement stmt = this.conn.prepareStatement(sql);
+                        stmt.setInt(1, id);
+                        stmt.execute();
+            
+                    } catch (Exception e) {
+                        JOptionPane.showMessageDialog(null, "Erro ao inserir empresa: " + e.getMessage());
+                    }
+    }
     
         
+            
 }
 

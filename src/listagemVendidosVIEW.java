@@ -11,12 +11,12 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Adm
  */
-public class listagemVIEW extends javax.swing.JFrame {
+public class listagemVendidosVIEW extends javax.swing.JFrame {
 
     /**
      * Creates new form listagemVIEW
      */
-    public listagemVIEW() {
+    public listagemVendidosVIEW() {
         initComponents();
         listarProdutos();
     }
@@ -57,7 +57,7 @@ public class listagemVIEW extends javax.swing.JFrame {
         jScrollPane1.setViewportView(listaProdutos);
 
         jLabel1.setFont(new java.awt.Font("Lucida Fax", 0, 18)); // NOI18N
-        jLabel1.setText("Lista de Produtos");
+        jLabel1.setText("Lista de Produtos Vendidos");
 
         jLabel2.setFont(new java.awt.Font("Lucida Fax", 0, 14)); // NOI18N
         jLabel2.setText("Vender Produto (ID)");
@@ -140,13 +140,13 @@ public class listagemVIEW extends javax.swing.JFrame {
         
         ProdutosDAO produtosdao = new ProdutosDAO();
         
-        produtosdao.venderProduto(Integer.parseInt(id));
-        listarProdutos();
+        //produtosdao.venderProduto(Integer.parseInt(id));
+        produtosdao.listarProdutosVendidos();
     }//GEN-LAST:event_btnVenderActionPerformed
 
     private void btnVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendasActionPerformed
-        listagemVendidosVIEW vendidos = new listagemVendidosVIEW();
-        vendidos.setVisible(true);
+        //vendasVIEW vendas = new vendasVIEW(); 
+        //vendas.setVisible(true);
     }//GEN-LAST:event_btnVendasActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
