@@ -53,8 +53,21 @@ public class ProdutosDAO {
 
     return vendidos;
 }
-    
+    public void venderProduto(int id){
+        conn = new conectaDAO().connectDB();
+        
+        String sql = "INSERT INTO produtos (status) VALUES ('Vendido') where id = ?";
+                    try {
+                        PreparedStatement stmt = this.conn.prepareStatement(sql);
+                        stmt.setInt(1, id);
+                        stmt.execute();
+            
+                    } catch (Exception e) {
+                        JOptionPane.showMessageDialog(null, "Erro ao inserir empresa: " + e.getMessage());
+                    }
+    }
     
         
+            
 }
 
